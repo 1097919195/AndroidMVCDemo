@@ -18,6 +18,7 @@ public class MVPActivity extends BaseMVPActivity<MVPPresenter> implements MVPCon
         return R.layout.activity_mvp;
     }
 
+    //因为在BaseMVPActivity中没有实现presenter类实例化所以需要new，可以模仿新闻APP的实现    （测试MVPPresenter2直接把本类中的MVPPresenter全部替换了就行）
     @Override
     protected void initPresenter() {
         // presenter 关联 view
