@@ -21,7 +21,7 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by Administrator on 2018/11/9 0009.
  */
-//此处如果继承了BasePresenter<MVPContract.View>的话就可以不一定实现attachView和detachView(需要用的话再重写就可以了),重写后再baseMVPActivity中会执行了连接和断开view的关联
+//继承了BasePresenter<MVPContract.View>的话就可以获取到之后关联的view，不一定实现attachView和detachView(需要用的话再重写),重写后在baseMVPActivity中执行连接和断开view的关联情况
 public class MVPPresenter extends BasePresenter<MVPContract.View> implements MVPContract.Presenter {
 
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -84,6 +84,12 @@ public class MVPPresenter extends BasePresenter<MVPContract.View> implements MVP
                 .subscribe(disposableObserver);
         disposable.add(disposableObserver);
 
+    }
+
+    //和view关联成功的时候会执行该方法（一般都用不到所以不重写）
+    @Override
+    public void attachView(MVPContract.View view) {
+        super.attachView(view);
     }
 
     //取消订阅及断开了和view的关联操作
