@@ -2,6 +2,7 @@ package com.xjp.androidmvcdemo.controller;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xjp.androidmvcdemo.MVP.test.MVPActivity;
 import com.xjp.androidmvcdemo.R;
 import com.xjp.androidmvcdemo.entity.Weather;
 import com.xjp.androidmvcdemo.entity.WeatherInfo;
@@ -114,4 +116,8 @@ public class MainActivity extends ActionBarActivity implements OnWeatherListener
         return (T) findViewById(id);
     }
 
+    public void mvpTest(View view) {
+        Intent intent = new Intent(this, MVPActivity.class);
+        startActivity(intent);
+    }
 }
